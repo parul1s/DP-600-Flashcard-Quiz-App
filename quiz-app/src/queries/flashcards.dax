@@ -1,0 +1,8 @@
+EVALUATE
+SELECTCOLUMNS(
+    'fabric_dp600_flashcards',
+    "Category", 'fabric_dp600_flashcards'[Category],
+    "Question", 'fabric_dp600_flashcards'[Question],
+    "Answer", 'fabric_dp600_flashcards'[Answer]
+)
+ORDER BY [Category], [Question]

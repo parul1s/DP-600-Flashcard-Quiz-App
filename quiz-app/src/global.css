@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Bridged tokens — kept in `@theme static` so the CSS vars are always
+   emitted, not tree-shaken when no Tailwind utility consumes them.
+   Required because <VegaVisual> and <DataGrid> read these at runtime via
+   `useCssTheme()` and project them into a JS theme object (Vega's SVG output
+   cannot resolve `var()` references). */
+@theme static {
+  --color-brand:            #c94b35;
+  --color-brand-foreground: #c94b35;
+  --color-hover:            #f5eee8;
+}
+
+@theme {
+  /* Color tokens — light theme
+     Usage: bg-*, text-*, border-* (e.g. bg-primary text-primary-foreground)
+     Each token has a -foreground pair for text on that surface. */
+  --color-background: #f8f5f0;
+  --color-foreground: #292522;
+
+  --color-card: #fffdf9;
+  --color-card-foreground: #292522;
+
+  --color-popover: #ffffff;                                          /* popover/dropdown surfaces */
+  --color-popover-foreground: #242424;
+
+  --color-primary: #c94b35;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #f1ebe3;
+  --color-secondary-foreground: #242424;
+
+  --color-muted: #eee8e0;
+  --color-muted-foreground: #756b63;
+
+  --color-accent: #f1dfd3;
+  --color-accent-foreground: #242424;
+
+  --color-destructive: #b10e1c;                                      /* errors & destructive actions */
+  --color-destructive-foreground: #ffffff;
+
+  --color-success: #0e700e;                                          /* success surfaces */
+  --color-success-foreground: #ffffff;
+
+  --color-border: #e3d8ce;
+  --color-input: #e3d8ce;
+  --color-ring: #c94b35;
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 16px;
+  --radius-4xl: 24px;
+  --radius-5xl: 32px;
+  --radius-6xl: 40px;
+  --radius-full: 9999px;
+  --radius: 6px;
+
+  /* Spacing — 4px grid; use only these tokens, no interpolation. *-nudge = base − 2px.
+     Usage: p-*, m-*, gap-* (e.g. p-400 gap-300) */
+  --spacing-none: 0;
+  --spacing-100-nudge: 2px;
+  --spacing-100: 4px;
+  --spacing-200-nudge: 6px;
+  --spacing-200: 8px;
+  --spacing-300-nudge: 10px;
+  --spacing-300: 12px;
+  --spacing-400: 16px;
+  --spacing-500: 20px;
+  --spacing-600: 24px;
+  --spacing-700: 28px;
+  --spacing-800: 32px;
+
+  /* Font Sizes — 100-based scale 
+     Usage: text-* (e.g. text-300, text-hero-900) */
+  --text-100: 10px;
+  --text-200: 12px;
+  --text-300: 14px;
+  --text-400: 16px;
+  --text-500: 20px;
+  --text-600: 24px;
+  --text-hero-700: 28px;
+  --text-hero-800: 32px;
+  --text-hero-900: 40px;
+  --text-hero-1000: 68px;
+
+  /* Line Heights — paired with font sizes
+     Usage: leading-* (e.g. leading-300) */
+  --leading-100: 14px;
+  --leading-200: 16px;
+  --leading-300: 20px;
+  --leading-400: 22px;
+  --leading-500: 28px;
+  --leading-600: 32px;
+  --leading-hero-700: 36px;
+  --leading-hero-800: 40px;
+  --leading-hero-900: 52px;
+  --leading-hero-1000: 92px;
+
+  /* Font Weights
+     Usage: font-* (e.g. font-semibold) */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Families
+     Usage: font-* (e.g. font-heading, font-base) */
+  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-base: 'Manrope', 'Segoe UI', sans-serif;
+  --font-monospace: Consolas, 'Courier New', Courier, monospace;     /* code, pre-formatted text */
+  --font-numeric: Bahnschrift, 'Segoe UI',                          /* KPI values, numeric displays */
+    'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto,
+    'Helvetica Neue', sans-serif;
+
+  /* Icon Sizes — 100-based scale
+     Usage: icon-size-* custom utility (e.g. icon-size-200) */
+  --icon-size-100: 12px;
+  --icon-size-200: 16px;
+  --icon-size-300: 20px;
+  --icon-size-400: 24px;
+  --icon-size-500: 28px;
+  --icon-size-600: 32px;
+  --icon-size-700: 48px;
+}
+
+@utility icon-size-* {
+  width: --value(--icon-size-*);
+  height: --value(--icon-size-*);
+}
+
+@layer base {
+  .dark {
+    /* Color tokens — dark theme */
+    --color-background: #292929;
+    --color-foreground: #ffffff;
+
+    --color-card: #292929;
+    --color-card-foreground: #ffffff;
+
+    --color-popover: #292929;
+    --color-popover-foreground: #ffffff;
+
+    --color-primary: #115ea3;
+    --color-primary-foreground: #ffffff;
+
+    --color-secondary: #1f1f1f;
+    --color-secondary-foreground: #ffffff;
+
+    --color-muted: #141414;
+    --color-muted-foreground: #adadad;
+
+    --color-accent: #3d3d3d;
+    --color-accent-foreground: #ffffff;
+
+    --color-destructive: #dc626d;
+    --color-destructive-foreground: #ffffff;
+
+    --color-success: #54b054;
+    --color-success-foreground: #ffffff;
+
+    --color-border: #525252;
+    --color-input: #525252;
+    --color-ring: #479ef5;
+
+    --color-brand:            #115ea3;
+    --color-brand-foreground: #479ef5;
+    --color-hover:            #3d3d3d;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-base);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}

@@ -1,0 +1,7 @@
+activeProfile: default
+profiles:
+  default:
+    semanticModels:
+      flashcards:
+        workspaceId: ef914dfc-a575-408d-89ad-336fedc8f97b
+        itemId: d8d67f67-44e0-4d9f-a2da-8ffe02f838ce
