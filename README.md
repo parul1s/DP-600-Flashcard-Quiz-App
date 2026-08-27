@@ -14,7 +14,7 @@ bash
 npm run dev 
 npx rayfin up
 
-Apps connected to a semantic model currently can't be opened outside the Fabric portal. That means there's no standalone public URL for this demo yet; it has to be opened from inside Fabric. The screen recording in this repo/submission was captured that way, not from a public link.
+Apps connected to a semantic model currently can't be opened outside the Fabric portal. That means there's no standalone public URL for this demo yet; it has to be opened from inside Fabric. The screen recording in this repo/submission was captured that way, not from a public link. Watch here: https://youtu.be/jvVST2gV6qo?si=YbNL3yt9OdRN0QYf
 
 Tech stack 
 Rayfin (Fabric Apps SDK/CLI, public preview) 
